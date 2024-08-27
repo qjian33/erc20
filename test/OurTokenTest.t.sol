@@ -37,7 +37,11 @@ contract OurTokenTest is Test, ZkSyncChainChecker {
         ourToken.transfer(bob, BOB_STARTING_AMOUNT);
     }
 
-    function testInitialSupply() public view {
+    function testBobBlance() public {
+        assertEq(ourToken.balanceOf(bob), BOB_STARTING_AMOUNT);
+    }
+
+    function testInitialSupply() public {
         assertEq(ourToken.totalSupply(), deployer.INITIAL_SUPPLY());
     }
 
